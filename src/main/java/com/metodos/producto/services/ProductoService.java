@@ -4,6 +4,7 @@ import com.metodos.producto.models.ProductoModel;
 import com.metodos.producto.repositories.ProductoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import java.util.*;
 
 import java.util.ArrayList;
 
@@ -17,6 +18,10 @@ public class ProductoService {
     }
     public ArrayList<ProductoModel> getProductos() {
         return (ArrayList<ProductoModel>) repository.findAll();
+    }
+
+    public Optional<ProductoModel> getProductoporID(int id) {
+        return repository.findById(id);
     }
 
     public boolean deleteProducto(ProductoModel producto) {
